@@ -2,7 +2,7 @@
 - hosts: all
   become: true
   roles:
-    - role: snovichkov.dns
+    - role: ansible-dns
       dns_domain: "example.com"
       dns_options:
         - inet6
