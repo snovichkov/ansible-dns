@@ -1,0 +1,21 @@
+##
+# {{ ansible_managed }}
+#
+
+{% if dns_domain -%}
+    domain {{ dns_domain }}
+{% endif %}
+{% if dns_searches is iterable and dns_searches -%}
+    search {{ dns_searches|join(" ") }}
+{% endif %}
+{% if dns_nameservers is iterable and dns_nameservers -%}
+    {% for nameserver in dns_nameservers -%}
+        nameserver {{nameserver}}
+    {% endfor %}
+{% endif %}
+{% if dns_sortlist is iterable and dns_sortlist -%}
+    sortlist {{ dns_sortlist|join(" ") }}
+{% endif %}
+{% if dns_options is iterable and dns_options %}
+    options {{ dns_options|join(" ") }}
+{% endif %}

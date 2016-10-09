@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - role: snovichkov.dns
+      dns_domain: "example.com"
+      dns_options:
+        - inet6
+        - no-ip6-dotint
+      dns_sortlist:
+        - "130.155.160.0/255.255.240.0"
+        - "130.155.0.0"
+      dns_searches:
+        - "site.com"
+        - "homepage.com"
+      dns_nameservers:
+        - "8.8.8.8"
+        - "8.8.4.4"
+        - "2001:4860:4860::8888"
+        - "2001:4860:4860::8844"
