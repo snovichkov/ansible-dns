@@ -7,11 +7,11 @@ Ansible role for configure DNS
 Role Variables
 --------------
 
-* **dns_domain**: An Local domain name.
-* **dns_options**: An list of certain internal resolver variables.
+* **dns_domain**: The Local domain name.
+* **dns_options**: A list of certain internal resolver options
 * **dns_sortlist**: The list of addresses sorting.
-* **dns_searches**: An search list for host-name lookup.
-* **dns_nameservers**: An list of name server IP address.
+* **dns_searches**: A search list for host-name lookup.
+* **dns_nameservers**: A list of name server IP address.
 
 Dependencies
 ------------
@@ -30,7 +30,8 @@ Example Playbook
         - "8.8.8.8"
         - "8.8.4.4"
         - "2001:4860:4860::8888"
-        - "2001:4860:4860::8844"  
+        - "2001:4860:4860::8844"
+      dns_options: ['single-request-reopen']
 ```
 
 License
